@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+ <metadata>
+    <id>Cision.SendGridWrapper</id>
+    <version>1.0.0</version>
+    <authors>Provisioneers</authors>
+    <owners>Provisioneers</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Cision wrapper for the Send Grid API</description>
+    <copyright>Copyright 2018</copyright>
+    <dependencies>
+      <dependency id="RestSharp" version="104.1.0.0"/>
+    </dependencies>
+  </metadata>
+</package>

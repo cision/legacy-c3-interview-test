@@ -1,0 +1,53 @@
+﻿<Window x:Class="SendGridTester.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SendGridTester"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
+    <TabControl>
+        <TabItem Header="Send an Email">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="35" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" Grid.Row="0" FontSize="14" VerticalAlignment="Center" Margin="3">From:</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="1" FontSize="14" VerticalAlignment="Center" Margin="3">To:</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="2" FontSize="14" VerticalAlignment="Center" Margin="3">CC:</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="3" FontSize="14" VerticalAlignment="Center" Margin="3">BCC:</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="4" FontSize="14" VerticalAlignment="Center" Margin="3">Subject:</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="5" FontSize="14" VerticalAlignment="Center" Margin="3">Body:</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="6" FontSize="14" VerticalAlignment="Center" Margin="3">Tracking:</TextBlock>
+
+                <TextBox Grid.Column="1" Grid.Row="0" Margin="3" Text="{Binding EmailFrom}"></TextBox>
+                <TextBox Grid.Column="1" Grid.Row="1" Margin="3" Text="{Binding EmailTo}"></TextBox>
+                <TextBox Grid.Column="1" Grid.Row="2" Margin="3" Text="{Binding EmailCC}"></TextBox>
+                <TextBox Grid.Column="1" Grid.Row="3" Margin="3" Text="{Binding EmailBCC}"></TextBox>
+                <TextBox Grid.Column="1" Grid.Row="4" Margin="3" Text="{Binding Subject}"></TextBox>
+                <TextBox Grid.Column="1" Grid.Row="5" Margin="3" Text="{Binding Body}" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"></TextBox>
+                <CheckBox Grid.Column="1" Grid.Row="6" Margin="3" VerticalAlignment="Center" IsChecked="{Binding Path=EnableTracking}"></CheckBox>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.ColumnSpan="2" Grid.Row="7">
+                    <Button Width="75" Command="{Binding SendEmailCommand}" Margin="3" IsEnabled="{Binding ButtonsEnabled}">Send</Button>
+                    <Button Width="75" Command="{Binding ClearCommand}" Margin="3" IsEnabled="{Binding ButtonsEnabled}">Clear</Button>
+                </StackPanel>
+            </Grid>
+        </TabItem>
+    </TabControl>
+
+</Window>
